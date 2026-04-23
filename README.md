@@ -1,8 +1,6 @@
 # keg-fsi-simulation-analysis
 Keg FSI Simulation — Frequency Response Analysis Pipeline
-<p align="center">
-  <img src="outputs/combined_frequency_response.png" alt="Frequency Response" width="800"/>
-</p>
+
 Author: Ananya Shekar
 Institution: ifak Institut für Automation und Kommunikation e.V., Magdeburg, Germany
 Simulation Tool: COMSOL Multiphysics 6.4
