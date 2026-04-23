@@ -1,8 +1,8 @@
 # keg-fsi-simulation-analysis
 Keg FSI Simulation — Frequency Response Analysis Pipeline
 
-Author: Ananya Shekar
-Institution: ifak Institut für Automation und Kommunikation e.V., Magdeburg, Germany
+Author: Ananya Shekar  
+Institution: ifak Institut für Automation und Kommunikation e.V., Magdeburg, Germany  
 Simulation Tool: COMSOL Multiphysics 6.4
 Analysis Tool: Python 3
 Project Type: Research Internship — Non-Invasive Fill Level Detection
