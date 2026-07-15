@@ -1,4 +1,4 @@
-# Keg FSI Simulation — Frequency Response Analysis Pipeline
+# Keg FSI Simulation - Frequency Response Analysis Pipeline
 
 **Author:** Ananya Shekar
 **Institution:** ifak Institut für Automation und Kommunikation e.V., Magdeburg, Germany (Studentische Hilfskraft, Oct 2025 – May 2026)
@@ -52,13 +52,13 @@ Applications: beverage industry keg monitoring, chemical/food industry tank leve
 
 **Fluid-Structure Interaction (FSI):** describes the two-way interaction between a deformable solid structure and an enclosed fluid. When the keg shell vibrates, it compresses and expands the fluid inside; the fluid exerts pressure back on the shell, modifying its vibrational behavior.
 
-**Structural Mechanics** — the keg shell is modeled as linear elastic steel (AISI 4340), governed by:
+**Structural Mechanics** - the keg shell is modeled as linear elastic steel (AISI 4340), governed by:
 
 ```
 M·ü + C·u̇ + K·u = F(t)
 ```
 
-**Pressure Acoustics** — the fluid domains (water and air) are modeled with the frequency-domain Helmholtz equation:
+**Pressure Acoustics** - the fluid domains (water and air) are modeled with the frequency-domain Helmholtz equation:
 
 ```
 ∇²p + (ω/c)²·p = 0
