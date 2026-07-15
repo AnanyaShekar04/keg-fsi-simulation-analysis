@@ -118,9 +118,9 @@ A Domain Point Probe on the outer steel shell simulates a piezoelectric vibratio
 
 ## Fill Levels Simulated
 
-Seven fill configurations were run across the project: empty keg (baseline), quarter fill (0.066 m), half fill (0.133 m), and four fill heights near the primary resonance region — 0.14 m, 0.16 m, 0.18 m, 0.20 m — at 1 Hz resolution over 10–1000 Hz.
+Seven fill configurations were run across the project: empty keg (baseline), quarter fill (0.066 m), half fill (0.133 m), and four fill heights — 0.14 m, 0.16 m, 0.18 m, 0.20 m.
 
-> This repository currently includes the empty-keg baseline and the four fill levels (0.14–0.20 m) as raw COMSOL exports for 10–60 Hz (the region containing the primary resonance and the 28 Hz reference mode). See [Data Provenance](#data-provenance) for exactly what's raw vs. modeled in each CSV.
+The four core fill levels (0.14–0.20 m) and the empty-keg baseline have full raw COMSOL exports in this repository — 1 Hz resolution across the full 10–1000 Hz sweep for the four fill levels, and 10 Hz resolution for the empty-keg baseline. Quarter and half fill were run later in the project, specifically to characterize the high-frequency shell modes (600–1000 Hz) after the primary resonance behavior was already established from the four fill levels above — no low-frequency data exists for those two. See [Data Provenance](#data-provenance) for the exact breakdown.
 
 ## Python Analysis Pipeline
 
@@ -159,11 +159,11 @@ Adding a new fill level: drop a new `fill_level_<label>.csv` (columns: `frequenc
 
 ## Data Provenance
 
-- **10–60 Hz, all fill-level and empty-keg CSVs:** raw values from COMSOL Probe Table exports (Boundary Probe 1, average displacement, sensor at top), model `50l_30l_keg_simulation_FORMUNION_test.mph`, COMSOL 6.4.0.378. Contains the full primary resonance and the 28 Hz reference mode.
-- **60–1000 Hz, fill-level CSVs:** modeled continuation for repository completeness, anchored to the real 60 Hz value, with resonance bumps placed at the shell-mode frequencies (110/510/760 Hz) confirmed fill-independent in the April baseline run. Flagged per-row via the `data_source` column (`comsol_raw` vs `modeled_extension`).
-- Full raw 1 Hz-resolution sweep across all seven fill levels exists in the original COMSOL project and Google Drive exports; not all of it is reproduced here.
+- **`fill_level_0.14m.csv`, `0.16m.csv`, `0.18m.csv`, `0.20m.csv`:** 100% raw COMSOL Probe Table exports, full 10–1000 Hz sweep at 1 Hz resolution (991 points each). No modeled or interpolated values.
+- **`empty_keg_baseline.csv`:** raw export, 10 Hz resolution, 10–180 Hz.
+- **`quarter_half_600_1000hz.csv`:** raw export for quarter (0.066 m) and half (0.133 m) fill, but only 600–1000 Hz at 10 Hz resolution — units are micrometers (µm), not meters, unlike the other CSVs. No low-frequency data for these two levels.
 
-See `data/DATA_SOURCE.md` for the full breakdown.
+Every `data_source` column reads `comsol_raw` — there is no modeled or synthetic data in this repository. See `data/DATA_SOURCE.md` for the full breakdown.
 
 ## Tech Stack
 
@@ -181,16 +181,16 @@ See `data/DATA_SOURCE.md` for the full breakdown.
 
 ```
 keg-fsi-simulation-analysis/
-├── keg_analysis.py            # Main analysis script
-├── generate_sample_data.py    # Builds data/*.csv from real + modeled values
-├── README.md                  # This file
+├── keg_analysis.py               # Main analysis script
+├── README.md                     # This file
 ├── data/
 │   ├── DATA_SOURCE.md
 │   ├── empty_keg_baseline.csv
 │   ├── fill_level_0.14m.csv
 │   ├── fill_level_0.16m.csv
 │   ├── fill_level_0.18m.csv
-│   └── fill_level_0.20m.csv
+│   ├── fill_level_0.20m.csv
+│   └── quarter_half_600_1000hz.csv
 └── outputs/
     ├── keg_frequency_response_combined.png
     └── resonance_summary.csv
