@@ -305,7 +305,7 @@ keg-fsi-simulation-analysis/
 Ananya Shekar  
 M.Sc. Electrical Engineering & Information Technology  
 Otto-von-Guericke University Magdeburg  
-📧 ananyashekar2140@gmail.com  
+📧 ananyashekar4210@gmail.com  
 🔗 LinkedIn  
 🐙 GitHub  
 
